@@ -36,7 +36,7 @@ export default function Home() {
       try {
         const res = await axios.get(`https://api.github.com/users/${debouncedUsername}`);
         setUserData(res.data);
-      } catch (err) {
+      } catch {
         setError("User not found");
       } finally {
         setLoading(false);
