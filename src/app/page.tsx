@@ -47,10 +47,10 @@ export default function Home() {
   }, [debouncedUsername]);
 
   return (
-    <div className="min-h-screen bg-blue-600 text-white p-6 flex flex-col items-center justify-start">
-      <h1 className="text-3xl font-bold mb-6">GitHub User Search</h1>
+    <div className="min-h-screen bg-blue-600 text-white px-4 py-6 flex flex-col items-center justify-start">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">GitHub User Search</h1>
 
-      <div className="relative w-full max-w-sm mb-6">
+      <div className="relative w-full max-w-md mb-6">
         <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
           <FaSearch />
         </span>
@@ -64,10 +64,10 @@ export default function Home() {
       </div>
 
       {loading && <p>Loading...</p>}
-      {error && <p className="text-red-300 font-semibold">{error}</p>}
+      {error && <p className="text-red-300 font-semibold text-center">{error}</p>}
 
       {userData && (
-        <div className="bg-white text-black shadow-lg rounded-lg p-6 max-w-md w-full text-center">
+        <div className="bg-white text-black shadow-lg rounded-lg p-6 w-full max-w-md text-center">
           <Image
             src={userData.avatar_url}
             alt={userData.name}
@@ -77,12 +77,13 @@ export default function Home() {
           />
           <h2 className="text-xl font-bold mt-4">{userData.name}</h2>
           <p className="text-gray-600">{userData.bio}</p>
-          <div className="mt-4">
+          <div className="mt-4 space-y-1">
             <p><strong>Repos:</strong> {userData.public_repos}</p>
             <p><strong>Followers:</strong> {userData.followers}</p>
             <a
               href={userData.html_url}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-blue-500 underline mt-2 inline-block"
             >
               View GitHub Profile
